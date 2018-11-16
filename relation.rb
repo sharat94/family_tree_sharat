@@ -1,4 +1,4 @@
-module Relation
+module Relation # defines the different relations for the person as instance methods
 require 'pry'
   def sons
     sons = []
@@ -13,19 +13,24 @@ require 'pry'
   def uncles
     uncles = []
     Kingdom.family.each do |person|
-      uncles << person if ( person.gender == 'male' &&
-                          person.parents.include?(self)
-                        )
+      uncles << person.brothers if person.children.include?(self)
     end
     uncles
+  end
+
+  def aunts
+    aunts = []
+    Kingdom.family.each do |person|
+      aunts << person.sisters if person.children  .include?(self)
+    end
+    aunts
   end
 
   def brothers_in_law
     brothers_in_law = []
     Kingdom.family.each do |person|
-      brothers_in_law << person.spouse if (
-                                          person.brothers.include?(self) &&
-                                          person.female?
+      brothers_in_law << person.find_spouse if (
+                                          self.sisters.include?(person)
                                          )
     end
     brothers_in_law
@@ -34,9 +39,8 @@ require 'pry'
   def sisters_in_law
     sisters_in_law = []
     Kingdom.family.each do |person|
-      sisters_in_law << person.spouse if (
-                                          person.sisters.include?(self) &&
-                                          person.male?
+      sisters_in_law << person.find_spouse if (
+                                          self.brothers.include?(person)
                                          )
     end
     sisters_in_law
@@ -65,8 +69,11 @@ require 'pry'
   def sisters
     sisters = []
     Kingdom.family.each do |person|
-      sisters << person if ( person.female? &&
-                              person.parents.include?(self.parents.last)
+      sisters << person if (
+                              !self.parents.empty? &&
+                              person.female? &&
+                              person.parents.include?(self.parents.last) &&
+                              person.name != self.name
                             )
     end
     sisters
@@ -75,8 +82,11 @@ require 'pry'
   def brothers
     brothers = []
     Kingdom.family.each do |person|
-      brothers << person if ( person.male? &&
-                              person.parents.include?(self.parents.last)
+      brothers << person if (
+                              !self.parents.empty? &&
+                              person.male? &&
+                              person.parents.include?(self.parents.last) &&
+                              person.name != self.name
                             )
     end
     brothers
@@ -122,14 +132,15 @@ require 'pry'
   def siblings
     siblings = []
     Kingdom.family.each do |person|
-      siblings << person if (
-                              person.parents.include?(self.parents.last)
+      siblings << person if ( !self.parents.empty? &&
+                              person.parents.include?(self.parents.last) &&
+                              person.name != self.name
                             )
     end
     siblings
   end
 
-  def spouse
+  def find_spouse
     spouse = []
     Kingdom.family.each do |person|
       spouse << person if (
@@ -143,8 +154,8 @@ require 'pry'
     grandparents = []
     Kingdom.family.each do |person|
       grandparents << person.parents if (
-                                  self.parents.include?(person)
-                                )
+                                          self.parents.include?(person)
+                                        )
     end
     grandparents
   end

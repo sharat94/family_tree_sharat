@@ -1,14 +1,8 @@
 require './relation'
+require './generation'
 require 'pry'
-class Generation
-  attr_accessor :number, :people
-  def initialize(generation_stage)
-    @generation_stage = generation_stage
-    @people = []
-  end
-end
 
-class Person < Generation
+class Person < Generation #defines a person with their respective attributes
   include Relation
   attr_accessor :name, :spouse, :parents, :gender, :generation_stage
   def initialize(person)
