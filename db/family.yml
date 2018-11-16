@@ -1,0 +1,175 @@
+family:
+    shan:
+        name: 'shan'
+        spouse: 'anga'
+        parents: []
+        gender: 'male'
+        generation_stage: 0
+    anga:
+        name: 'anga'
+        spouse: 'shan'
+        parents: []
+        gender: 'female'
+        generation_stage: 0
+    ish:
+        name: 'ish'
+        spouse: null
+        parents: ['shan', 'anga']
+        gender: 'male'
+        generation_stage: 1
+    chit:
+        name: 'chit'
+        spouse: 'ambi'
+        parents: ['shan', 'anga']
+        gender: 'male'
+        generation_stage: 1
+    ambi:
+        name: 'ambi'
+        spouse: 'chit'
+        parents: []
+        gender: 'female'
+        generation_stage: 1
+    vich:
+        name: 'vich'
+        spouse: 'lika'
+        parents: ['shan', 'anga']
+        gender: 'male'
+        generation_stage: 1
+    lika:
+        name: 'lika'
+        spouse: 'vich'
+        parents: []
+        gender: 'female'
+        generation_stage: 1
+    satya:
+        name: 'satya'
+        spouse: 'vyan'
+        parents: ['shan', 'anga']
+        gender: 'female'
+        generation_stage: 1
+    vyan:
+        name: 'vyan'
+        spouse: 'satya'
+        parents: []
+        gender: 'male'
+        generation_stage: 1
+    drita:
+        name: 'drita'
+        spouse: 'jaya'
+        parents: ['chit', 'ambi']
+        gender: 'male'
+        generation_stage: 2
+    jaya:
+        name: 'java'
+        spouse: 'drita'
+        parents: []
+        gender: 'female'
+        generation_stage: 2
+    vrita:
+        name: 'vrita'
+        spouse: null
+        parents: ['chit', 'ambi']
+        gender:  'male'
+        generation_stage: 2
+    jata:
+        name: 'jata'
+        spouse: null
+        parents: ['drita', 'jaya']
+        gender:  'male'
+        generation_stage: 3
+    driya:
+        name: 'driya'
+        spouse: 'mnu'
+        parents: ['drita', 'jaya']
+        gender:  'female'
+        generation_stage: 3
+    mnu:
+        name: 'mnu'
+        spouse: 'driya'
+        parents: []
+        gender:  'male'
+        generation_stage: 3
+    vila:
+        name: 'vila'
+        spouse: 'jnki'
+        parents: ['vich', 'lika']
+        gender: 'male'
+        generation_stage: 2
+    jnki:
+        name: 'jnki'
+        spouse: 'vila'
+        parents: []
+        gender:  'female'
+        generation_stage: 2
+    lavnya:
+        name: 'lavnya'
+        spouse: 'gru'
+        parents: ['vila', 'jnki']
+        gender: 'female'
+        generation_stage: 3
+    gru:
+        name: 'gru'
+        spouse: 'lavnya'
+        parents: []
+        gender:  'male'
+        generation_stage: 3
+    chika:
+        name: 'chika'
+        spouse: 'kpila'
+        parents: ['vich', 'lika']
+        gender: 'female'
+        generation_stage: 2
+    kpila:
+        name: 'kpila'
+        spouse: 'chika'
+        parents: []
+        gender: 'male'
+        generation_stage: 2
+    satvy:
+        name: 'satvy'
+        spouse: 'asva'
+        parents: ['satya', 'vyan']
+        gender: 'female'
+        generation_stage: 2
+    asva:
+        name: 'asva'
+        spouse: satvy
+        parents: []
+        gender:  'male'
+        generation_stage: 2
+    savya:
+        name: 'savya'
+        spouse: 'krpi'
+        parents: ['satya', 'vyan']
+        gender:  'male'
+        generation_stage: 2
+    krpi:
+        name: 'krpi'
+        spouse: 'savya'
+        parents: []
+        gender:  'female'
+        generation_stage: 2
+    kriya:
+        name: 'kriya'
+        spouse: null
+        parents: ['savya', 'krpi']
+        gender: 'male'
+        generation_stage: 3
+    saayan:
+        name: 'saayan'
+        spouse: 'mina'
+        parents: ['satya', 'vyan']
+        gender: 'male'
+        generation_stage: 2
+    mina:
+        name: 'mina'
+        spouse: 'saayan'
+        parents: []
+        gender: 'female'
+        generation_stage: 2
+    misa:
+        name: 'misa'
+        spouse: null
+        parents: ['saayan', 'mina']
+        gender: 'male'
+        generation_stage: 3
