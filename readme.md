@@ -4,7 +4,11 @@ Here we have mapped Shan family tree so that when given a ‘name’ and a ‘re
 
 Steps to get started:
 
-ruby family_tree.rb
+1) gem install bundler
+2) bundle install
+
+  - To execute the program run `` bin/family_tree ``
+  - To run the tests run `` bundle exec rspec ``
 
 Requirements:
 

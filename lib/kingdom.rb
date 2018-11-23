@@ -1,4 +1,4 @@
-require 'person'
+require_relative 'person'
 require 'yaml'
 
 class Kingdom #class which build the family tree in an instance class variable '@family'

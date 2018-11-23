@@ -1,7 +1,7 @@
 require 'kingdom'
 require 'relation'
 require 'person'
-describe Relation do
+describe Relation do #indicative of the different tests that can be written for different relations
   describe ".sons" do
     it "check if the sons listed are accurate" do
       actual_members = Person.find_relative('shan', 'sons')

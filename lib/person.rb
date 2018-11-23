@@ -1,5 +1,5 @@
-require 'relation'
-require 'generation'
+require_relative 'relation'
+require_relative 'generation'
 
 class Person < Generation #defines a person with their respective attributes
   include Relation

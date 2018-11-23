@@ -1,5 +1,6 @@
-require 'person'
-require 'kingdom'
+#!/usr/bin/env ruby
+require './lib/person'
+require './lib/kingdom'
 while true # STDIN
   puts 'Enter the name:'
   input_name = gets.strip
