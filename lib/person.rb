@@ -1,6 +1,5 @@
-require './relation'
-require './generation'
-require 'pry'
+require 'relation'
+require 'generation'
 
 class Person < Generation #defines a person with their respective attributes
   include Relation

@@ -1,5 +1,4 @@
 module Relation # defines the different relations for the person as instance methods
-require 'pry'
   def sons
     sons = []
     Kingdom.family.each do |person|
@@ -29,7 +28,7 @@ require 'pry'
   def brothers_in_law
     brothers_in_law = []
     Kingdom.family.each do |person|
-      brothers_in_law << person.find_spouse if (
+      brothers_in_law << person.spouse if (
                                           self.sisters.include?(person)
                                          )
     end
@@ -39,7 +38,7 @@ require 'pry'
   def sisters_in_law
     sisters_in_law = []
     Kingdom.family.each do |person|
-      sisters_in_law << person.find_spouse if (
+      sisters_in_law << person.spouse if (
                                           self.brothers.include?(person)
                                          )
     end
@@ -140,7 +139,7 @@ require 'pry'
     siblings
   end
 
-  def find_spouse
+  def spouse
     spouse = []
     Kingdom.family.each do |person|
       spouse << person if (

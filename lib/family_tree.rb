@@ -1,5 +1,5 @@
-require './person'
-require './kingdom'
+require 'person'
+require 'kingdom'
 while true # STDIN
   puts 'Enter the name:'
   input_name = gets.strip

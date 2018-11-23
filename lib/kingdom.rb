@@ -1,6 +1,5 @@
-require './person'
+require 'person'
 require 'yaml'
-require 'pry'
 
 class Kingdom #class which build the family tree in an instance class variable '@family'
   @family = []
