@@ -1,5 +1,4 @@
 require 'kingdom'
-require 'pry'
 describe Kingdom do
   describe ".initialize" do
     it "check if the family members have been loaded to class instance variable" do

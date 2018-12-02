@@ -28,7 +28,7 @@ module Relation # defines the different relations for the person as instance met
   def brothers_in_law
     brothers_in_law = []
     Kingdom.family.each do |person|
-      brothers_in_law << person.spouse if (
+      brothers_in_law << person.find_spouse if (
                                           self.sisters.include?(person)
                                          )
     end
@@ -38,7 +38,7 @@ module Relation # defines the different relations for the person as instance met
   def sisters_in_law
     sisters_in_law = []
     Kingdom.family.each do |person|
-      sisters_in_law << person.spouse if (
+      sisters_in_law << person.find_spouse if (
                                           self.brothers.include?(person)
                                          )
     end
@@ -59,10 +59,15 @@ module Relation # defines the different relations for the person as instance met
     children = []
     Kingdom.family.each do |person|
       children << person if (
-                              person.parents.include?(self)
+                              !person.parents.empty? && person.parents.include?(self)
                             )
     end
     children
+  end
+
+  def mother
+    mother = self.parents.select{ |person| !person.nil? && person.female? }
+    mother.last
   end
 
   def sisters
@@ -139,7 +144,7 @@ module Relation # defines the different relations for the person as instance met
     siblings
   end
 
-  def spouse
+  def find_spouse
     spouse = []
     Kingdom.family.each do |person|
       spouse << person if (
@@ -158,5 +163,5 @@ module Relation # defines the different relations for the person as instance met
     end
     grandparents
   end
-
+  alias_method :spouse, :find_spouse
 end

@@ -19,13 +19,14 @@ describe Relation do #indicative of the different tests that can be written for 
   describe ".spouse" do
     it "check if the spouse listed are accurate" do
       spouse = Person.find_relative('shan', 'spouse')
-      expect(spouse).to eq("anga")
+      expect(spouse.last.name).to eq("anga")
     end
   end
 
   describe ".brothers_in_law" do
     it "check if the brothers in law listed are accurate" do
-      actual_member_names = Person.find_relative('ish', 'brothers_in_law')
+      actual_members = Person.find_relative('ish', 'brothers_in_law')
+      actual_member_names = actual_members.compact.flatten.map{ |member| member.name }
       expect(actual_member_names).to match_array(["vyan"])
     end
   end

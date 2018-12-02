@@ -2,18 +2,45 @@
 require './lib/person'
 require './lib/kingdom'
 while true # STDIN
-  puts 'Enter the name:'
-  input_name = gets.strip
-  puts 'Enter the relation to be found'
-  input_relation = gets.strip
-
-  family_members = []
-  family_members = Person.find_relative(input_name, input_relation)
-  if family_members.empty?
-    puts 'No person/relative found'
-  else
-    puts "The #{input_relation} of #{input_name} are:"
-    family_members.compact.flatten.each{ |member| puts member.name }
-    puts '*' * 50
+  puts "Please enter the selection:"
+  puts "1. Find relatives"
+  puts "2. Add new family member"
+  puts "3. Find maximum number of girl daughters"
+  puts "4. Find the relation"
+  input = gets.strip
+  case input.to_i
+  when 1
+    puts "Enter the name"
+    input_name = gets.strip
+    puts "Enter the relation"
+    input_relation = gets.strip
+    family_members = []
+    family_members = Person.find_relative(input_name, input_relation)
+    if family_members.empty?
+      puts 'No person/relative found'
+    else
+      puts "The #{input_relation} of #{input_name} are:"
+      family_members.compact.flatten.each{ |member| puts member.name }
+      puts '*' * 50
+    end
+  when 2
+    puts "Enter one of the parents name"
+    input_name = gets.strip
+    puts "Enter the details of the baby as (relation: name):"
+    input_relation, input_new_name = gets.strip.split(/\W+/)
+    Person.add_new_relative(input_name, input_relation, input_new_name)
+  when 3
+    Person.find_maximum_girl_child
+  when 4
+    puts "enter the person name"
+    input_name = gets.strip
+    puts "enter the relative's name"
+    input_relative = gets.strip
+    relation = Person.find_relation(input_name, input_relative)
+    if relation.empty?
+      puts 'No relation found'
+    else
+      puts relation.last
+    end
   end
 end

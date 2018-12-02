@@ -60,7 +60,7 @@ family:
         gender: 'male'
         generation_stage: 2
     jaya:
-        name: 'java'
+        name: 'jaya'
         spouse: 'drita'
         parents: []
         gender: 'female'
