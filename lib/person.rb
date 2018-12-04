@@ -41,7 +41,11 @@ class Person < Generation #defines a person with their respective attributes
     relative = Kingdom.family.find{ |person| person.name == relative_name}
     return [] if person.nil? && relative.nil?
     Relation.instance_methods.each do |relation|
-      relatives = person.send relation
+      if relation.to_s == 'spouse'
+        relatives = person.send :find_spouse
+      else
+        relatives = person.send relation
+      end
       return [relation.to_s] if !relatives.nil? && relatives.include?(relative)
     end
     return []
